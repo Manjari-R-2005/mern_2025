@@ -1,31 +1,34 @@
-import React from 'react'
-
+import React, { useState } from 'react';
+// import './Login.css'
 const Login = () => {
-    const handleSubmit = (e) =>{
-        e.preventDefault();
-    const username = e.target.username.value;
-    const password = e.target.password.value;
-    console.log('Username: ', username);
-    console.log('Password: ', password);
-    };
-  return (
-    <>
-    <div>Login</div>
-    <form onSubmit={handleSubmit}>
-        <div>
-            <label htmlFor='username'>Username</label>
-            <input type = "text" id = "username" name = "username" placeholder='Enter your name' required />
-            <br />
-            <br />
-            <label htmlFor='password'>Password</label>
-            <input type = "text" id = "password" name = "password" placeholder='Enter your password' required />
-            <br />
-            <br />
-            <button type = "submit">Login</button>
-        </div>
-    </form>
-    </>
-  )
+  const [formData,setFormData]=useState ({
+    email:'',
+    password:''
+  })
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData)
+    setFormData({
+      email:"",
+      password:""
+    })
+  }
+  const handleChange = (e) => {
+  setFormData((prev) => ({...prev,[e.target.name]:e.target.value}))
 }
 
-export default Login
+return(
+  <div>
+    <form action="" onSubmit={handleSubmit}>
+    <h1>Login</h1>
+    <label>Email:</label>
+    <input type="email" name="email" value={formData.email} onChange={handleChange}/>
+    <label>Password:</label>
+    <input type="password" name='password' value={formData.password} onChange={handleChange}/>
+    <button onClick={handleSubmit}>Submit</button>
+    </form>
+  </div>
+)
+}
+
+export default Login;
