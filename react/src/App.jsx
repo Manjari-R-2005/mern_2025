@@ -9,9 +9,12 @@ import Login from './pages/Login'
 import Navbar from './components/Navbar'
 import {Routes,Route} from 'react-router-dom'
 import Hooks from './pages/Hooks'
-import State from '../hooks/State'
-import Effect from '../hooks/Effect'
-import Effect2 from '../hooks/Effect2'
+import State from './hooks/State'
+import Effect from './hooks/Effect'
+import Effect2 from './hooks/Effect2'
+import Ref from './hooks/Ref'
+import Reducer from './hooks/Reducer'
+import Context from './hooks/Context'
 
 const App = () => {
    var fruits = ['Apple','Banana','Orange','Mango','Grapes']
@@ -30,8 +33,8 @@ const App = () => {
       {/* <Counter /> */}
       <Navbar />
       <Routes>
-        <Route path = '/home' element = {<Home items = {fruits} users = {user}/>}/>
-        <Route path = '/about' element = {<About/>}/>
+        <Route path = '/' element = {<Home items = {fruits} users = {user}/>}/>
+        <Route path = '/about' element = {<About items = {fruits} users = {user}/>}/>
         <Route path = '/contact' element = {<Contact/>}/>
         <Route path = '/counter' element = {<Counter />} />
         <Route path = '/skills' element = {<Skills/>}/>
@@ -40,7 +43,9 @@ const App = () => {
         <Route path = '/state' element = {<State />}/>
         <Route path = '/effect' element = {<Effect />}/>
         <Route path = '/effect2' element = {<Effect2 />}/>
-
+        <Route path = '/ref' element = {<Ref />}/>
+        <Route path = '/reducer' element = {<Reducer />}/>
+        <Route path = '/context' element = {<Context />}/>
 
       </Routes>
     </div>
